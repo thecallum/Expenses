@@ -1,0 +1,71 @@
+.slider {
+    background-color: #fff;
+        border: 1px solid #bbb;
+        margin: 0 20px;
+
+    width: 60px;
+    height: 30px;
+
+    border-radius: 50px;
+    position: relative;
+
+    padding: 0 4px;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        content: "+";
+        left: -10px;
+    }
+
+    &::after {
+        content: "-";
+        right: -10px;
+    }
+
+    > input {
+        display: none;
+        position: relative;
+
+        &:checked ~ label::after {
+            background-color: $color-expenses-primary;
+            transform: translate(30px, -50%);
+
+            transition: all .1s linear;
+        }
+    }
+
+    > label {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        border-radius: 50px;
+
+    // box-shadow: 0 3px 15px orange;
+
+
+        &::after {
+            content: " ";
+            display: block;
+
+            width: 22px;
+            height: 22px;
+            background-color: $color-income-primary;
+            border-radius: 50px;
+            position: absolute;
+            transform: translate(0,-50%);
+
+            top: 50%;
+            left: 4px;
+
+            transition: all .1s linear;
+
+        }
+    }
+}
