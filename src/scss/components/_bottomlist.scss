@@ -4,13 +4,8 @@
 
     > .container {
         margin-top: 50px;
-        // background-color: #eee;
-
         width: 100%;
         max-width: 1000px;
-
-        // padding: 10px;
-
         display: flex;
         justify-content: space-between;
     }
@@ -28,13 +23,16 @@
     .income {
         margin-right: 50px;
 
-        > .title {
+        > .title,
+        .value {
             color: $color-income-primary;
         }
+        
     }
 
     .expenses {
-        > .title {
+        > .title,
+        .value  {
             color: $color-expenses-primary;
         }
     }
@@ -43,41 +41,19 @@
         margin: 0;
         padding: 0;
 
-        // border: 1px solid #ddd;
-
         > li {
             display: flex;
-            // margin-top: 10px;
-
             justify-content: space-between;
             align-items: center;
-
-            // padding: 6px 12px;
             padding: 0 10px;
-
             height: 50px;
-
-            > .desc {
-
-            }
-            > .value {
-
-            }
             border-top: 1px solid hsl(0,0%,90%);
-
-
             &:last-child {
                 border-bottom: 1px solid hsl(0,0%,90%);
             }
-
             &:nth-child(even) {
                 background-color: hsl(0,0%,95%);
             }
         }
-
-
     }
-
-
-
 }

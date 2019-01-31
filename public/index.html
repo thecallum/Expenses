@@ -12,95 +12,71 @@
 </head>
 
 <body>
-    <div class="top">
-        <div class="summary">
-            <h1 class="title">Budget in February</h1>
-            <h2 class="currency value">102.43</h2>
+    <div id="app">
+        <div class="top">
+            <div class="summary">
+                <h1 class="title">Budget in February</h1>
+                <h2 class="value">{{formatCurrency(totalBudget)}}</h2>
 
-            <div class="income">
-                <div class="title">INCOME</div>
-
-                <div class="currency value">0.00</div>
-            </div>
-            <div class="expenses">
-                <div class="title">EXPENSES</div>
-
-                <div class="right">
-                    <div class="currency-neg value">0.00</div>
-                    <div class="percentage">100%</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="bottom">
-        <div class="add">
-
-            <div class="slider">
-                <input type="checkbox" id="check">
-                <label for="check"></label>
-
-            </div>
-
-
-            <input type="text" placeholder="Add description">
-
-            <input type="text" placeholder="Value">
-
-            <button>icon add</button>
-
-        </div>
-
-        <div class="bottomlist">
-            <div class="container">
                 <div class="income">
-                    <h3 class="title">INCOME</h3>
+                    <div class="title">INCOME</div>
 
-                    <ul class="list">
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="value">+ 1.00</div>
-                        </li>
-                    </ul>
+                    <div class="value">{{formatCurrency(totalIncome)}}</div>
                 </div>
                 <div class="expenses">
-                    <h3 class="title">EXPENSES</h3>
+                    <div class="title">EXPENSES</div>
 
-                    <ul class="list">
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-
-                        <li>
-                            <div class="desc">Job</div>
-                            <div class="currency-neg value">1.00</div>
-                        </li>
-                    </ul>
+                    <div class="right">
+                        <div class="value">{{formatCurrency(totalExpenses)}}</div>
+                        <div class="percentage">{{Math.floor(totalExpenses / totalIncome * 100)}}%</div>
+                    </div>
                 </div>
             </div>
 
+        </div>
+
+        <div class="bottom">
+
+            <form @submit='add'>
+                <div class="add">
+
+                    <div class="slider">
+                        <input type="checkbox" id="check" v-model="sliderIsPlus">
+                        <label for="check"></label>
+                    </div>
+
+                    <input type="text" placeholder="Add description" v-model="description" v-bind:class='{error: error_description, expense: !sliderIsPlus}'>
+                    <input type="number" placeholder="Value" v-model="value" v-bind:class='{error: error_value, expense: !sliderIsPlus}'>
+                    <button type="submit">icon add</button>
+                </div>
+            </form>
+
+
+            <div class="bottomlist">
+                <div class="container">
+                    <div class="income">
+                        <h3 class="title">INCOME</h3>
+
+                        <ul class="list">
+                            <li v-for='item in income'>
+                                <div class="desc">{{item.desc}}</div>
+                                <div class="value">{{formatCurrency(item.value)}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="expenses">
+                        <h3 class="title">EXPENSES</h3>
+
+                        <ul class="list">
+                            <li v-for='item in expenses'>
+                                <div class="desc">{{item.desc}}</div>
+                                <div class="value">{{formatCurrency(item.value)}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 

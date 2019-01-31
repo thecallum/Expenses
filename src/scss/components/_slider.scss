@@ -1,7 +1,7 @@
 .slider {
     background-color: #fff;
-        border: 1px solid #bbb;
-        margin: 0 20px;
+    border: 1px solid #bbb;
+    margin: 0 20px;
 
     width: 60px;
     height: 30px;
@@ -19,12 +19,12 @@
     }
 
     &::before {
-        content: "+";
+        content: "-";
         left: -10px;
     }
 
     &::after {
-        content: "-";
+        content: "+";
         right: -10px;
     }
 
@@ -32,11 +32,14 @@
         display: none;
         position: relative;
 
-        &:checked ~ label::after {
-            background-color: $color-expenses-primary;
-            transform: translate(30px, -50%);
+        &:checked {
+            ~ label::after {
+                background-color: $color-income-primary;
+                transform: translate(30px, -50%);
+    
+                transition: all .1s linear;
+            }
 
-            transition: all .1s linear;
         }
     }
 
@@ -47,16 +50,13 @@
         left: 0;
         border-radius: 50px;
 
-    // box-shadow: 0 3px 15px orange;
-
-
         &::after {
             content: " ";
             display: block;
 
             width: 22px;
             height: 22px;
-            background-color: $color-income-primary;
+            background-color: $color-expenses-primary;
             border-radius: 50px;
             position: absolute;
             transform: translate(0,-50%);

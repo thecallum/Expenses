@@ -1,11 +1,8 @@
 .add {
     background-color: #ddd;
     width: 100%;
-
     height: 60px;
-
     padding: 10px 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,18 +11,26 @@
         margin: 0 6px;
     }
 
-
-    > input[type="text"] {
+    input[type="text"],
+    input[type="number"] {
         border-radius: 5px;
-
-
         border: 1px solid #bbb;
         padding: 0 8px;
-
         height: 100%;
 
+        &:focus {
+            border-color: $color-income-primary;
+            outline: none;
+        }
+
+        &.expense:focus {
+            border-color: $color-expenses-primary;
+        }
+
+        &.error {
+            border-color: $color-error;
+            border-width: 2px;
+            margin: 0 5px;
+        }
     }
-
-
-    
 }

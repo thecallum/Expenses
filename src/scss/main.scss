@@ -33,18 +33,23 @@ h6 {
 
 
 
-.currency {
-    &::before {
-        content: "£";
-        margin-right: 6px;
-    }
-}
+// .currency {
+//     &::before {
+//         content: "£";
+//         margin-right: 6px;
+//     }
+// }
 
-.currency-neg {
-    @extend .currency;
-    &::before {
-        content: "- £" ;
-    }
-}
+// .currency-neg {
+//     @extend .currency;
+//     &::before {
+//         content: "- £" ;
+//     }
+// }
 
 
+
+
+// [v-cloak] {
+//     display: none;
+// }
