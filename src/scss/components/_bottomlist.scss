@@ -7,7 +7,6 @@
     }
     to {
         transform: translateY(0%);
-        z-index: 2000;
         position: relative;
     }
 }
@@ -57,24 +56,127 @@
         overflow: hidden;
         position: relative;
 
-        > li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 10px;
-            height: 50px;
-            border-top: 1px solid hsl(0,0%,90%);
-            background-color: white;
+        padding-bottom: 50px;
 
-            &:last-child {
-                border-bottom: 1px solid hsl(0,0%,90%);
-            }
-            &:nth-child(even) {
-                background-color: hsl(0,0%,95%);
-            }
+        > span {
+            // position: relative;
+            background-color: orange;
+            width: 100%;
+            height: 100%;
 
-            animation: add 1s;
-            animation-fill-mode: forwards; 
+            > li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 10px;
+                height: 50px;
+                border-top: 1px solid hsl(0,0%,90%);
+                background-color: white;
+    
+                .delete {
+                    width: 20px;
+                    height: 20px;
+                    background-color: transparent;
+                    // margin-left: 10px;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    // position: relative;
+
+                    opacity: 0;
+                    transition: .2s opacity linear;
+
+                    position: absolute;
+                    right: 10px;
+
+
+                    border: 2px solid $color-error;
+
+                    > span {
+                        width: 14px;
+                        height: 1px;
+
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+
+                        display: block;
+                        background-color: $color-error;
+                        transform-origin: center center;
+
+                        &:nth-child(1) {
+                            transform: translate(-50%,-50%) rotate(45deg);
+                        }
+                        &:nth-child(2) {
+                            transform: translate(-50%,-50%) rotate(-45deg);
+
+                        }
+                    }
+                }
+
+                .value {
+                    transition: margin .2s ease-in-out .1s;
+
+                }
+    
+
+    
+                &:hover {
+                    > .value {
+                        margin-right: 30px;
+                        transition: margin .2s ease-in-out;
+                    }
+                    > .delete {
+                        opacity: 1;
+                        transition: .2s opacity linear .1s;
+                    }
+                }
+    
+                &:last-child {
+                    border-bottom: 1px solid hsl(0,0%,90%);
+                }
+                &:nth-child(even) {
+                    background-color: hsl(0,0%,95%);
+                }
+            }
         }
+    }
+}
+
+.bottomlisttransition {
+    &-enter {
+        opacity: 0;
+        background-color: orange;
+        transition: none;
+        transform: translateY(-50px);
+        position: relative;
+        z-index: -2000;
+    }
+
+    &-enter-to {
+        animation-name: add;
+        animation-duration: .8s;
+        animation-fill-mode: forwards; 
+        animation-timing-function: ease-out;
+        z-index: 2000;
+    }
+
+    &-leave-to {
+        position: relative;
+        transform: translateY(-50px);       
+        margin-bottom: -50px;
+        z-index: -1000;
+
+        &:hover > .right {
+            transform: none;
+            transition: .1s;
+        }
+    }
+
+    &-leave-active {
+        transition: all .8s;
+    }
+
+    &-move {
+        transition: all .8s;
     }
 }

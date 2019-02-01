@@ -68,20 +68,34 @@
                         <h3 class="title">INCOME</h3>
 
                         <ul class="list">
-                            <li v-for='item in income'>
-                                <div class="desc">{{item.desc}}</div>
-                                <div class="value">{{formatCurrency(item.value)}}</div>
-                            </li>
+                            <transition-group name='bottomlisttransition'>
+                                <li v-for='item in income' :key='item.index'>
+                                    <div class="desc">{{item.desc}}</div>
+                                    <div class="value">{{formatCurrency(item.value)}}</div>
+                                    <button class="delete" @click='deleteFromList' :index='item.index' list='income'>
+                                        <span></span>
+                                        <span></span>
+                                    </button>
+                                </li>
+                            </transition-group>
                         </ul>
                     </div>
                     <div class="expenses">
                         <h3 class="title">EXPENSES</h3>
 
                         <ul class="list">
-                            <li v-for='item in expenses'>
-                                <div class="desc">{{item.desc}}</div>
-                                <div class="value">{{formatCurrency(item.value)}}</div>
-                            </li>
+                            <transition-group name='bottomlisttransition'>
+                                <li v-for='item in expenses' :key='item.index'>
+                                    <div class="desc">{{item.desc}}</div>
+                                    <div class="right">
+                                        <div class="value">{{formatCurrency(item.value)}}</div>
+                                        <button class="delete" @click='deleteFromList' :index='item.index' list='expenses'>
+                                            <span></span>
+                                            <span></span>
+                                        </button>
+                                    </div>
+                                </li>
+                            </transition-group>
                         </ul>
                     </div>
                 </div>
@@ -94,32 +108,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-<!-- <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-
-<script src="../node_modules/femtotween/dist/femtoTween.esm.js"></script> -->
-
-<!-- 
-<div id="example-8">
-    <input v-model.number="firstNumber" type="number" step="20"> +
-    <input v-model.number="secondNumber" type="number" step="20"> =
-    {{ result }}
-    <p>
-        <animated-integer v-bind:value="firstNumber"></animated-integer> +
-        <animated-integer v-bind:value="secondNumber"></animated-integer> =
-        <animated-integer v-bind:value="result"></animated-integer>
-    </p>
-</div>
-
-
-
-
-<script src="js/bundle.js"></script> -->

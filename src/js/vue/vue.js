@@ -6,7 +6,7 @@ const app = new Vue({
 
     data: {
         income: [
-            { desc: 'memes', value: 1 }
+            { desc: 'memes', value: 1, index: 0 }
         ],
         expenses: [
             // { desc: 'memes', value: 1 }
@@ -18,6 +18,8 @@ const app = new Vue({
 
         error_description: false,
         error_value: false,
+
+        indexCount: 0,
     },
 
     methods: {
@@ -27,7 +29,8 @@ const app = new Vue({
             if (this.description && this.value) {
                 this[this.sliderIsPlus ? 'income' : 'expenses'].push({
                     desc: this.description,
-                    value: Number(this.value)
+                    value: Number(this.value),
+                    index: this.indexCount++
                 });
 
                 this.resetAdd();
@@ -35,6 +38,10 @@ const app = new Vue({
                 this.error_description = !this.description;
                 this.error_value = !this.value;
             }
+        },
+        deleteFromList(e) {
+            const {index, list} = e.target.attributes;
+            this[list.value] = this[list.value].filter(item => item.index != index.value);
         },
 
         resetAdd() {
@@ -64,6 +71,5 @@ const app = new Vue({
         totalBudget: function () {
             return this.totalIncome - this.totalExpenses;
         },
-
     }
 })
