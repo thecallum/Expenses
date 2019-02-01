@@ -46,18 +46,19 @@
 
             <form @submit='add'>
                 <div class="add">
+                    <div class="container">
+                        <div class="slider">
+                            <input type="checkbox" id="check" v-model="sliderIsPlus">
+                            <label for="check"></label>
+                        </div>
 
-                    <div class="slider">
-                        <input type="checkbox" id="check" v-model="sliderIsPlus">
-                        <label for="check"></label>
+                        <input type="text" placeholder="Add description" v-model="description" v-bind:class='{error: error_description, expense: !sliderIsPlus}'>
+                        <input type="number" placeholder="Value" v-model="value" min='0' step='0.01' v-bind:class='{error: error_value, expense: !sliderIsPlus}'>
+                        <button type="submit" class="submitbtn" v-bind:class='{expense: !sliderIsPlus}'>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
-
-                    <input type="text" placeholder="Add description" v-model="description" v-bind:class='{error: error_description, expense: !sliderIsPlus}'>
-                    <input type="number" placeholder="Value" v-model="value" min='0' step='0.01' v-bind:class='{error: error_value, expense: !sliderIsPlus}'>
-                    <button type="submit" class="submitbtn" v-bind:class='{expense: !sliderIsPlus}'>
-                        <span></span>
-                        <span></span>
-                    </button>
                 </div>
             </form>
 

@@ -14,6 +14,7 @@
 .bottomlist {
     display: flex;
     justify-content: center;
+    padding: 10px;
 
     > .container {
         margin-top: 50px;
@@ -21,12 +22,18 @@
         max-width: 1000px;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+
     }
 
     .income,
     .expenses {
-        width: 50%;
+        // width: 50%;
         position: relative;
+        flex-grow: 1;
+        margin: 0 10px;
+        min-width: 300px;
+        margin: 0 20px;
 
         > .title {
             font-size: 28px;
@@ -35,7 +42,7 @@
     }
 
     .income {
-        margin-right: 50px;
+        // margin-right: 50px;
 
         > .title,
         .value {
