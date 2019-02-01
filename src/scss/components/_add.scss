@@ -1,3 +1,22 @@
+@keyframes toMinus {
+    from {transform: translate(-50%,-50%) rotate(90deg)}
+    to {transform: translate(-50%,-50%) rotate(180deg)}
+}
+
+@keyframes toMinus-middle {
+    from {transform: translate(-50%,-50%) rotate(0deg)}
+    to {transform: translate(-50%,-50%) rotate(180deg)}
+}
+
+@keyframes toPlus {
+    from {transform: translate(-50%,-50%) rotate(180deg)}
+    to {transform: translate(-50%,-50%) rotate(270deg)}
+}
+@keyframes toPlus-middle {
+    from {transform: translate(-50%,-50%) rotate(180deg)}
+    to {transform: translate(-50%,-50%) rotate(360deg)}
+}
+
 .add {
     background-color: #ddd;
     width: 100%;
@@ -31,6 +50,66 @@
             border-color: $color-error;
             border-width: 2px;
             margin: 0 5px;
+        }
+    }
+
+    > .submitbtn {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 50px;
+        border: 2px solid $color-income-primary;
+        position: relative;
+        cursor: pointer;
+
+        &:focus {outline: none}
+        &:hover {
+            border-color: lighten($color: $color-income-primary, $amount: 10%);
+            > span {background-color: lighten($color: $color-income-primary, $amount: 10%);}
+        }
+
+        > span {
+            width: 30px;
+            height: 2px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            
+            transform: translate(-50%,-50%);
+            background-color: $color-income-primary;
+            border-radius: 3px;
+            transition-timing-function: ease-out;
+            animation-duration: .5s;
+            animation-name: toPlus-middle;
+
+            &:nth-child(2) {
+                transform-origin: center center;
+                transform: translate(-50%,-50%) rotate(90deg);
+                animation-name: toPlus;
+            }
+        }
+
+        &.expense {
+            border-color: $color-expenses-primary;
+
+            &:hover {
+                border-color: darken($color: $color-expenses-primary, $amount: 10%);
+                > span {background-color: darken($color: $color-expenses-primary, $amount: 10%)}
+            }
+
+            > span {
+                background-color: $color-expenses-primary;
+                border-radius: 3px;
+                transform: translate(-50%,-50%) rotate(180deg);
+                animation-name: toMinus-middle;
+
+                &:nth-child(2) {
+                    transform-origin: center center;
+                    transform: translate(-50%,-50%) rotate(180deg);
+                    animation-name: toMinus;
+                }
+            }
         }
     }
 }

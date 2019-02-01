@@ -1,3 +1,6 @@
+const animatedInteger = require('./conponents/animated-integer');
+
+
 const app = new Vue({
     el: '#app',
 
@@ -6,7 +9,7 @@ const app = new Vue({
             { desc: 'memes', value: 1 }
         ],
         expenses: [
-            { desc: 'memes', value: 1 }
+            // { desc: 'memes', value: 1 }
         ],
 
         sliderIsPlus: true,
@@ -43,18 +46,24 @@ const app = new Vue({
 
         formatCurrency(num) {
             return num < 0 ? `-£${(num * -1).toFixed(2)}` : `£${num.toFixed(2)}`;
+        },
+        formatPercentage(num) {
+            return `${num.toFixed(0)}%`;
         }
     },
 
     computed: {
         totalIncome: function () {
-            return this.income.map(item => Number(item.value)).reduce((acc, cur) => acc + cur);
+            const values = this.income.map(item => Number(item.value));
+            return values.length ? values.reduce((acc, cur) => acc + cur) : 0;
         },
         totalExpenses: function () {
-            return this.expenses.map(item => Number(item.value)).reduce((acc, cur) => acc + cur);
+            const values = this.expenses.map(item => Number(item.value));
+            return values.length ? values.reduce((acc, cur) => acc + cur) : 0;
         },
         totalBudget: function () {
             return this.totalIncome - this.totalExpenses;
-        }
+        },
+
     }
 })

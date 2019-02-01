@@ -1,3 +1,17 @@
+@keyframes add {
+    from {
+        z-index: -2000;
+        position: absolute;
+        width: 100%;
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0%);
+        z-index: 2000;
+        position: relative;
+    }
+}
+
 .bottomlist {
     display: flex;
     justify-content: center;
@@ -13,6 +27,7 @@
     .income,
     .expenses {
         width: 50%;
+        position: relative;
 
         > .title {
             font-size: 28px;
@@ -27,7 +42,6 @@
         .value {
             color: $color-income-primary;
         }
-        
     }
 
     .expenses {
@@ -40,6 +54,8 @@
     .list {
         margin: 0;
         padding: 0;
+        overflow: hidden;
+        position: relative;
 
         > li {
             display: flex;
@@ -48,12 +64,17 @@
             padding: 0 10px;
             height: 50px;
             border-top: 1px solid hsl(0,0%,90%);
+            background-color: white;
+
             &:last-child {
                 border-bottom: 1px solid hsl(0,0%,90%);
             }
             &:nth-child(even) {
                 background-color: hsl(0,0%,95%);
             }
+
+            animation: add 1s;
+            animation-fill-mode: forwards; 
         }
     }
 }

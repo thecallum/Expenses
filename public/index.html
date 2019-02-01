@@ -16,19 +16,26 @@
         <div class="top">
             <div class="summary">
                 <h1 class="title">Budget in February</h1>
-                <h2 class="value">{{formatCurrency(totalBudget)}}</h2>
+                <h2 class="value">
+                    <animated-integer v-bind:value="totalBudget" :format='formatCurrency'></animated-integer>
+                </h2>
 
                 <div class="income">
                     <div class="title">INCOME</div>
-
-                    <div class="value">{{formatCurrency(totalIncome)}}</div>
+                    <div class="value">
+                        <animated-integer v-bind:value="totalIncome" :format='formatCurrency'></animated-integer>
+                    </div>
                 </div>
                 <div class="expenses">
                     <div class="title">EXPENSES</div>
 
                     <div class="right">
-                        <div class="value">{{formatCurrency(totalExpenses)}}</div>
-                        <div class="percentage">{{Math.floor(totalExpenses / totalIncome * 100)}}%</div>
+                        <div class="value">
+                            <animated-integer v-bind:value="totalExpenses" :format='formatCurrency'></animated-integer>
+                        </div>
+                        <div class="percentage">
+                            <animated-integer v-bind:value="(totalExpenses / totalIncome * 100)" :format='formatPercentage'></animated-integer>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,8 +53,11 @@
                     </div>
 
                     <input type="text" placeholder="Add description" v-model="description" v-bind:class='{error: error_description, expense: !sliderIsPlus}'>
-                    <input type="number" placeholder="Value" v-model="value" v-bind:class='{error: error_value, expense: !sliderIsPlus}'>
-                    <button type="submit">icon add</button>
+                    <input type="number" placeholder="Value" v-model="value" min='0' step='0.01' v-bind:class='{error: error_value, expense: !sliderIsPlus}'>
+                    <button type="submit" class="submitbtn" v-bind:class='{expense: !sliderIsPlus}'>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </form>
 
@@ -84,3 +94,32 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script src="../node_modules/femtotween/dist/femtoTween.esm.js"></script> -->
+
+<!-- 
+<div id="example-8">
+    <input v-model.number="firstNumber" type="number" step="20"> +
+    <input v-model.number="secondNumber" type="number" step="20"> =
+    {{ result }}
+    <p>
+        <animated-integer v-bind:value="firstNumber"></animated-integer> +
+        <animated-integer v-bind:value="secondNumber"></animated-integer> =
+        <animated-integer v-bind:value="result"></animated-integer>
+    </p>
+</div>
+
+
+
+
+<script src="js/bundle.js"></script> -->

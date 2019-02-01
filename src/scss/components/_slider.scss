@@ -37,7 +37,7 @@
                 background-color: $color-income-primary;
                 transform: translate(30px, -50%);
     
-                transition: all .1s linear;
+                transition: all .1s ease-in-out;
             }
 
         }
