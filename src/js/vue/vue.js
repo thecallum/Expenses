@@ -1,7 +1,6 @@
-const animatedInteger = require('./conponents/animated-integer');
+require('./conponents/animated-integer');
 
-
-const app = new Vue({
+new Vue({
     el: '#app',
 
     data: {

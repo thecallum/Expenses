@@ -1,55 +1,10 @@
 @import 'colors/colors';
 
+@import 'base/base';
+
+@import 'typography/typography';
+
 @import './components/add';
 @import './components/bottomlist';
 @import './components/top';
 @import './components/slider';
-
-
-
-
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    font-family: 'Open Sans', sans-serif;
-
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-
-
-// .currency {
-//     &::before {
-//         content: "£";
-//         margin-right: 6px;
-//     }
-// }
-
-// .currency-neg {
-//     @extend .currency;
-//     &::before {
-//         content: "- £" ;
-//     }
-// }
-
-
-
-
-// [v-cloak] {
-//     display: none;
-// }

@@ -2,19 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 50px 0;
-
     background-image: linear-gradient(to right bottom, hsl(210,50%,50%), hsl(280,50%,50%));
     background-position: center;
-
     background-repeat: no-repeat;
 }
 
 .summary {
     padding: 10px;
     color: #fff;
-
     width: 100%;
     max-width: 400px;
 
@@ -30,13 +26,9 @@
         font-size: 40px;
     }
 
-    > .income {
-        background-color: $color-income-primary;
-    }
+    > .income {background-color: $color-income-primary}
 
-    > .expenses {
-        background-color: $color-expenses-primary;
-    }
+    > .expenses {background-color: $color-expenses-primary}
 
     > .income,
     > .expenses {
@@ -56,18 +48,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
         }
 
         .percentage {
             background-color: hsla(0,0%,10%,.4);
-
             padding: 3px 8px;
             border-radius: 4px;
-
             margin-left: 20px;
-
         }
-
     }
 }

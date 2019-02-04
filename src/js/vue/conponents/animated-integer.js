@@ -1,6 +1,5 @@
 const { tween } = require('femtotween')
 
-
 module.exports = Vue.component('animated-integer', {
     template: '<span>{{ tweeningValue }}</span>',
     props: {

@@ -23,12 +23,10 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-
     }
 
     .income,
     .expenses {
-        // width: 50%;
         position: relative;
         flex-grow: 1;
         margin: 0 10px;
@@ -42,8 +40,6 @@
     }
 
     .income {
-        // margin-right: 50px;
-
         > .title,
         .value {
             color: $color-income-primary;
@@ -62,11 +58,9 @@
         padding: 0;
         overflow: hidden;
         position: relative;
-
         padding-bottom: 50px;
 
         > span {
-            // position: relative;
             background-color: orange;
             width: 100%;
             height: 100%;
@@ -84,48 +78,30 @@
                     width: 20px;
                     height: 20px;
                     background-color: transparent;
-                    // margin-left: 10px;
                     border-radius: 50px;
                     cursor: pointer;
-                    // position: relative;
-
                     opacity: 0;
                     transition: .2s opacity linear;
-
                     position: absolute;
                     right: 10px;
-
-
                     border: 2px solid $color-error;
 
                     > span {
                         width: 14px;
                         height: 1px;
-
                         position: absolute;
                         top: 50%;
                         left: 50%;
-
                         display: block;
                         background-color: $color-error;
                         transform-origin: center center;
 
-                        &:nth-child(1) {
-                            transform: translate(-50%,-50%) rotate(45deg);
-                        }
-                        &:nth-child(2) {
-                            transform: translate(-50%,-50%) rotate(-45deg);
-
-                        }
+                        &:nth-child(1) {transform: translate(-50%,-50%) rotate(45deg)}
+                        &:nth-child(2) {transform: translate(-50%,-50%) rotate(-45deg)}
                     }
                 }
 
-                .value {
-                    transition: margin .2s ease-in-out .1s;
-
-                }
-    
-
+                .value {transition: margin .2s ease-in-out .1s}
     
                 &:hover {
                     > .value {
@@ -138,12 +114,8 @@
                     }
                 }
     
-                &:last-child {
-                    border-bottom: 1px solid hsl(0,0%,90%);
-                }
-                &:nth-child(even) {
-                    background-color: hsl(0,0%,95%);
-                }
+                &:last-child {border-bottom: 1px solid hsl(0,0%,90%)}
+                &:nth-child(even) {background-color: hsl(0,0%,95%)}
             }
         }
     }
@@ -179,11 +151,6 @@
         }
     }
 
-    &-leave-active {
-        transition: all .8s;
-    }
-
-    &-move {
-        transition: all .8s;
-    }
+    &-leave-active {transition: all .8s}
+    &-move {transition: all .8s}
 }
