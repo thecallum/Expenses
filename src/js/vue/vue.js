@@ -5,12 +5,8 @@ const app = new Vue({
     el: '#app',
 
     data: {
-        income: [
-            { desc: 'memes', value: 1, index: 0 }
-        ],
-        expenses: [
-            // { desc: 'memes', value: 1 }
-        ],
+        income: [],
+        expenses: [],
 
         sliderIsPlus: true,
         description: '',
@@ -40,7 +36,7 @@ const app = new Vue({
             }
         },
         deleteFromList(e) {
-            const {index, list} = e.target.attributes;
+            const { index, list } = e.target.attributes;
             this[list.value] = this[list.value].filter(item => item.index != index.value);
         },
 
