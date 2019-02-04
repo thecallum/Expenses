@@ -71,5 +71,8 @@ new Vue({
         totalBudget: function () {
             return this.totalIncome - this.totalExpenses;
         },
+        totalExpensesPercentage: function () {
+            return this.totalExpenses / this.totalIncome * 100 || 0;
+        }
     }
 })

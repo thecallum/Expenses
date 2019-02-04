@@ -34,7 +34,7 @@
                             <animated-integer v-bind:value="totalExpenses" :format='formatCurrency'></animated-integer>
                         </div>
                         <div class="percentage">
-                            <animated-integer v-bind:value="(totalExpenses / totalIncome * 100)" :format='formatPercentage'></animated-integer>
+                            <animated-integer v-bind:value="totalExpensesPercentage" :format='formatPercentage'></animated-integer>
                         </div>
                     </div>
                 </div>
