@@ -16,6 +16,11 @@ const app = new Vue({
         error_value: false,
 
         indexCount: 0,
+        date: '',
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    },
+    mounted() {
+        this.date = this.months[new Date().getMonth()];
     },
 
     methods: {
@@ -52,7 +57,7 @@ const app = new Vue({
         },
         formatPercentage(num) {
             return `${num.toFixed(0)}%`;
-        }
+        },
     },
 
     computed: {
