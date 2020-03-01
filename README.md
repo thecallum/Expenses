@@ -6,9 +6,9 @@ Budgeting app built with Vue
 * [Installation](#Installation)
 
 ### About
-This was a simple project for me to work on my front end design skills.
+This was a simple project to work on front-end development skills.
 
-I am very happy with how it turned out, especially with the custom css animations.
+The app was build with VueJS. In the app, you add different incomes and expenses. The app makes it easier to manage costs, and displays them in a friendly way.
 
 ### Installation
 Initialize package manager
